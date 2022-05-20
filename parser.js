@@ -39,6 +39,7 @@ router.post('/', async (req, res) => {
         wb.write(`Заявка ${planZakupok}.xlsx`,(err,stat)=>{
             if(err) reject(err)
             else {
+                console.log('Файл создан')
                 setTimeout(() => {
                     resolve();
                 }, 100)
