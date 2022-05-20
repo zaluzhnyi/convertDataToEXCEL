@@ -59,7 +59,7 @@ router.get('/download/', async (req, res) => {
       console.log('Запрос на скачивание')
       const urlRequest = url.parse(req.url, true)
       const fileName = `Заявка ${urlRequest.query.filename}.xlsx`
-      const file = __dirname+'\\'+ fileName
+      const file = __dirname+'/'+ fileName
       console.log('Путь к файлу',file)
         res.download(file,(err => {
             if(err)console.log('Ошибка: ',err)
@@ -68,7 +68,8 @@ router.get('/download/', async (req, res) => {
                     if (err) {
                         console.error(err)
                         return
-                    }
+                    }else
+                    console.log('Файл с сервера удален')
                 })
             }
         }))
