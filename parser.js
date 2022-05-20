@@ -7,6 +7,7 @@ const url = require('url')
 
 router.post('/', async (req, res) => {
     try {
+        console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
         let arrayNameColumn = ['Объект', 'Подразделение', '№ План Закупок(Заявки)', 'Период', 'Содержание', 'ФИО Инициатора', 'ФИО Исполнителя', 'Дата создания', 'Дата получения в работу', 'Сумма заявки', 'Исполнитель(специалист отдела)', 'Статус заявки(оформляется в ручную)', 'Получена товаров(сумма)', 'Оплачено(сумма)']
         let arrayNameColumn2 = ['razdely_plana', 'ispolnitel', 'cena']
