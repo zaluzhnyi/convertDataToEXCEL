@@ -46,13 +46,12 @@ router.post('/', async (req, res) => {
                 }, 100)
             }
         })
-    })
-        return  promise.then(()=>{
-            return res.json({message:'файл создан'})
+    }).then(()=>{
+            res.ok
         })
     } catch (e) {
         console.log(e, 'error')
-        return res.status(400).json({message: 'bad request'})
+        res.status(400).json({message: 'bad request'})
     }
 })
 
