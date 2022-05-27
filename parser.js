@@ -48,7 +48,11 @@ router.post('/', async (req, res) => {
         })
     }).then(()=>{
             res.ok
-        })
+        }).catch((err)=>{
+            console.log(err)
+            res.error()
+        }
+            )
     } catch (e) {
         console.log(e, 'error')
         res.status(400).json({message: 'bad request'})
