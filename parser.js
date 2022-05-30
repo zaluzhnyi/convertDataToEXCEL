@@ -50,7 +50,8 @@ router.post('/',cors(),async (req, res) => {
             }
         })
     }).then(()=>{
-
+        res.header('Access-Control-Allow-Origin','*')
+        console.log(res)
         return res.ok
         console.log('res',res.ok)
 
