@@ -11,11 +11,11 @@ const app = express();
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 //     next();
 // });
-const corsOptions ={
-    origin:'*',
-    credentials:true,
-    optionSuccessStatus:200,
-}
+// const corsOptions ={
+//     origin:'*',
+//     credentials:true,
+//     optionSuccessStatus:200,
+// }
 
 app.use(cors(corsOptions))
 
