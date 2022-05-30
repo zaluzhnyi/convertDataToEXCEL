@@ -10,7 +10,7 @@ const cors = require('cors')
 //     credentials: true,
 // };
 router.options('*', cors())
-router.post('/',cors(),async (req, res) => {
+router.post('/',async (req, res) => {
     try {
         console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
@@ -65,7 +65,7 @@ router.post('/',cors(),async (req, res) => {
     }
 })
 
-router.get('/download/', cors(),async (req, res) => {
+router.get('/download/',async (req, res) => {
   try {
       console.log('Запрос на скачивание')
 
