@@ -5,7 +5,7 @@ const fs = require('fs')
 const url = require('url')
 const cors = require('cors')
 const issue2options = {
-    origin: true,
+    origin: 'https://zzasvt3w2mcik.elma365.eu',
     methods: ["POST"],
     credentials: true,
 };
