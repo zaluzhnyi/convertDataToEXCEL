@@ -47,9 +47,9 @@ router.post('/', async (req, res) => {
             }
         })
     }).then(()=>{
-            res.set('Access-Control-Allow-Origin', req.headers.origin)
-            res.set("Access-Control-Allow-Headers", "Content-Type");
-        res.set('Vary', 'Origin');
+            // res.set('Access-Control-Allow-Origin', req.headers.origin)
+            // res.set("Access-Control-Allow-Headers", "Content-Type");
+        // res.set('Vary', 'Origin');
            return res.ok
         }).catch((err)=>{
             console.log(err)
