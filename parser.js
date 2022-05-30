@@ -46,14 +46,12 @@ router.post('/',async (req, res) => {
             if(err) reject(err)
             else {
                 console.log('Файл создан')
-                setTimeout(() => {
                     resolve();
-                }, 100)
             }
         })
     }).then(()=>{
 
-           // return res.ok
+        return res.ok
         console.log('res',res.ok)
 
         }).catch((err)=>{
