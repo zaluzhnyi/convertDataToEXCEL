@@ -4,13 +4,13 @@ const router = Router()
 const fs = require('fs')
 const url = require('url')
 const cors = require('cors')
-const issue2options = {
-    origin: 'https://zzasvt3w2mcik.elma365.eu',
-    methods: ["POST"],
-    credentials: true,
-};
-router.options('*', cors(issue2options))
-router.post('/',async (req, res) => {
+// const issue2options = {
+//     origin: 'https://zzasvt3w2mcik.elma365.eu',
+//     methods: ["POST"],
+//     credentials: true,
+// };
+router.options('*', cors())
+router.post('/',cors(),async (req, res) => {
     try {
         console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
@@ -65,7 +65,7 @@ router.post('/',async (req, res) => {
     }
 })
 
-router.get('/download/', async (req, res) => {
+router.get('/download/', cors(),async (req, res) => {
   try {
       console.log('Запрос на скачивание')
 
