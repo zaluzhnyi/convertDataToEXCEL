@@ -51,15 +51,12 @@ router.post('/',cors(),async (req, res) => {
         })
     }).then(()=>{
         res.header('Access-Control-Allow-Origin','*')
-        console.log((res.ok))
-        return res.ok
-        console.log('res',res.ok)
-
+        return
         }).catch((err)=>{
-            console.log(err)
-           return res.error()
+           return res.error(err)
         }
             )
+        return res.ok
     } catch (e) {
         console.log(e, 'error')
         return  res.status(400).json({message: 'bad request'})
