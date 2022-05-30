@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors')
 
 
 const app = express();
@@ -17,7 +17,7 @@ const app = express();
 //     optionSuccessStatus:200,
 // }
 
-
+app.options('*',cors())
 
 
 
