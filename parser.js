@@ -4,9 +4,13 @@ const router = Router()
 const fs = require('fs')
 const url = require('url')
 const cors = require('cors')
-
-router.options('/', cors())
-router.post('/',async (req, res) => {
+const issue2options = {
+    origin: true,
+    methods: ["POST"],
+    credentials: true,
+};
+router.options('*', cors(issue2options))
+router.post('/',cors(issue2options),async (req, res) => {
     try {
         console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
