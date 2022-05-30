@@ -50,13 +50,13 @@ router.post('/',cors(),async (req, res) => {
             }
         })
     }).then(()=>{
-        res.header('Access-Control-Allow-Origin','*')
         return
         }).catch((err)=>{
-           return res.error(err)
+            console.log(err)
+        throw new Error('файл не создан')
         }
             )
-        return res.ok
+        return res.json({asd:123})
     } catch (e) {
         console.log(e, 'error')
         return  res.status(400).json({message: 'bad request'})
