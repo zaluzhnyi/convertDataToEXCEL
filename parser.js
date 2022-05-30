@@ -55,8 +55,9 @@ router.post('/',async (req, res) => {
             res.set('Access-Control-Allow-Origin', req.headers.origin)
             res.set("Access-Control-Allow-Headers", "Content-Type");
         res.set('Vary', 'Origin');
-            console.log('отправляем ответ')
            return res.ok
+        console.log('res',res.ok)
+
         }).catch((err)=>{
             console.log(err)
            return res.error()
@@ -66,7 +67,6 @@ router.post('/',async (req, res) => {
         console.log(e, 'error')
         return  res.status(400).json({message: 'bad request'})
     }
-    console.log('ответ отправлен')
 })
 
 router.get('/download/', async (req, res) => {
