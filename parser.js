@@ -10,7 +10,7 @@ const issue2options = {
     credentials: true,
 };
 router.options('*', cors(issue2options))
-router.post('/',cors(issue2options),async (req, res) => {
+router.post('/',async (req, res) => {
     try {
         console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
