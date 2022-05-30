@@ -4,17 +4,17 @@ const cors = require('cors')
 
 const app = express();
 
-// let adr ='';
+let adr ='';
 app.use(function (req, res, next) {
-    // adr = req.headers.origin
+    adr = req.headers.origin
     res.header('Access-Control-Allow-Origin', req.headers.origin);
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-// app.use(cors({
-//     origin: adr
-// }))
+app.use(cors({
+    origin: adr
+}))
 
 
 
