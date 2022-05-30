@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors')
+
 
 
 const app = express();
@@ -16,19 +16,7 @@ const app = express();
 //     credentials:true,
 //     optionSuccessStatus:200,
 // }
-const whitelist = ["https://zzasvt3w2mcik.elma365.eu/"]
-const corsOptions = {
-    origin: function (origin, callback) {
-        console.log(origin)
-        if (!origin || whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error("Not allowed by CORS"))
-        }
-    },
-    credentials: true,
-}
-app.use(cors(corsOptions))
+
 
 
 
