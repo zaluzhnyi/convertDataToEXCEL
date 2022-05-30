@@ -5,8 +5,8 @@ const fs = require('fs')
 const url = require('url')
 const cors = require('cors')
 
-
-router.post('/', cors(),async (req, res) => {
+router.options('/', cors())
+router.post('/',async (req, res) => {
     try {
         console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
