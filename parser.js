@@ -10,7 +10,7 @@ const cors = require('cors')
 //     credentials: true,
 // };
 router.options('/', cors())
-router.post('/',async (req, res) => {
+router.post('/',cors(),async (req, res) => {
     try {
         console.log('POST запрос')
         let {table, planZakupok, iniciator, urFace, data, period} = req.body
