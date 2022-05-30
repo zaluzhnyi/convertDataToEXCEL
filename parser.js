@@ -52,6 +52,7 @@ router.post('/',async (req, res) => {
             }
         })
     }).then(()=>{
+        console.log('устанавливаем заголовки')
             res.set('Access-Control-Allow-Origin', req.headers.origin)
             res.set("Access-Control-Allow-Headers", "Content-Type");
         res.set('Vary', 'Origin');
