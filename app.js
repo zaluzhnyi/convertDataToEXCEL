@@ -18,10 +18,11 @@ app.use(express.json({extended: true}))
 app.use('/api/parser', require('./parser'))
 
 const PORT = process.env.PORT ||  5001
+const PORT2 = process.env.PORT ||  5002
 
 async function start() {
     try {
-        https.createServer(
+        const httpsServer = https.createServer(
             {
                 key: fs.readFileSync('./keys/privkey.pem'),
                 cert: fs.readFileSync('./keys/cert.pem'),
@@ -29,8 +30,12 @@ async function start() {
             app
 
         )
+
         app.listen(PORT, () => {
             console.log(`app has been started on port ${PORT}...`)
+        })
+        httpsServer.listen(PORT2,()=>{
+            console.log(`https has been started on port ${PORT}...`)
         })
     } catch (e) {
         console.log(e)
