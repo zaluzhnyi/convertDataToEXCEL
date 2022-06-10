@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors')
+const https = require('https');
+const fs = require('fs');
 
 
 const app = express();
@@ -19,6 +21,14 @@ const PORT = process.env.PORT ||  5001
 
 async function start() {
     try {
+        https.createServer(
+            {
+                key: fs.readFileSync('./keys/privkey.pem'),
+                cert: fs.readFileSync('./keys/cert.pem'),
+            },
+            app
+
+        )
         app.listen(PORT, () => {
             console.log(`app has been started on port ${PORT}...`)
         })
