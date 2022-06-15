@@ -1,6 +1,7 @@
 const {Router} = require('express')
 const xl = require('excel4node')
 const router = Router()
+const path = require('path');
 const fs = require('fs')
 const url = require('url')
 const cors = require('cors')
@@ -44,7 +45,7 @@ router.get('/download/',async (req, res) => {
 
       const urlRequest = url.parse(req.url, true)
       const fileName = `Заявка ${urlRequest.query.filename}.xlsx`
-      const file = __dirname+'/'+ fileName
+      const file = path.resolve(fileName)
       console.log('Путь к файлу',file)
       console.log(fs.existsSync(file))
         res.download(file,(err => {

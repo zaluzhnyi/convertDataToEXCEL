@@ -35,7 +35,7 @@ async function start() {
             console.log(`app has been started on port ${PORT}...`)
         })
         httpsServer.listen(PORT2,()=>{
-            console.log(`https has been started on port ${PORT}...`)
+            console.log(`https has been started on port ${PORT2}...`)
         })
     } catch (e) {
         console.log(e)
