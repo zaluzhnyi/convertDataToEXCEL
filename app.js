@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const https = require('https');
 const fs = require('fs');
-const log = require('./libs/log')(module)
+const log = require('./libs/log')(__filename)
 
 
 const app = express();

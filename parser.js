@@ -6,7 +6,7 @@ const fs = require('fs')
 const url = require('url')
 const cors = require('cors')
 const mainTable = require('./table.js')
-const log = require('./libs/log')(module)
+const log = require('./libs/log')(__filename)
 router.options('/', cors())
 router.post('/',cors(),async (req, res) => {
     try {
