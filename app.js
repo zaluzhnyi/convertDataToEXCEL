@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const https = require('https');
 const fs = require('fs');
+const log = require('./libs/log')(module)
 
 
 const app = express();
@@ -32,13 +33,13 @@ async function start() {
         )
 
         app.listen(PORT, () => {
-            console.log(`app has been started on port ${PORT}...`)
+            log.info(`app has been started on port ${PORT}...`)
         })
         httpsServer.listen(PORT2,()=>{
-            console.log(`https has been started on port ${PORT2}...`)
+            log.info(`https has been started on port ${PORT2}...`)
         })
     } catch (e) {
-        console.log(e)
+        log.error(e)
     }
 }
 
