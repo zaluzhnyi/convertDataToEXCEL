@@ -19,7 +19,7 @@ const logger = caller =>{
             winston.format.timestamp({
                 format: 'MMM-DD-YYYY HH:mm:ss'
             }),
-            winston.format.printf(info => `${info.level.}: ${info.label}: ${[info.timestamp]}: ${info.message}`),
+            winston.format.printf(info => `${info.level}: ${info.label}: ${[info.timestamp]}: ${info.message}`),
             winston.format.printf(error => `${error.level}: ${error.label}: ${[error.timestamp]}: ${error.message}`),
         )
     })
