@@ -7,6 +7,7 @@ const logger = caller =>{
         transports: [
             new winston.transports.File({
                 filename: 'logs/Logger.log',
+                options: { mode: 0644,flags: 'a+', encoding: 'utf8'},
                 maxsize: 5242880, // 5MB
                 maxFiles: 5,
             })
@@ -18,7 +19,7 @@ const logger = caller =>{
             winston.format.timestamp({
                 format: 'MMM-DD-YYYY HH:mm:ss'
             }),
-            winston.format.printf(info => `${info.level}: ${info.label}: ${[info.timestamp]}: ${info.message}`),
+            winston.format.printf(info => `${info.level.}: ${info.label}: ${[info.timestamp]}: ${info.message}`),
             winston.format.printf(error => `${error.level}: ${error.label}: ${[error.timestamp]}: ${error.message}`),
         )
     })
