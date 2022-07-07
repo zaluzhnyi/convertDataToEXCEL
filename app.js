@@ -16,10 +16,13 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.json({extended: true}))
-app.use('/api/parser', require('./parser'))
+app.use('/api/parserTender', require('./parserTender'))
+app.use('/api/parserPlanZak', require('./parserPlanZak'))
+app.use('/api/download', require('./downloadFile'))
 
-const PORT = process.env.PORT ||  5001
-const PORT2 = process.env.PORT ||  5002
+
+const PORT = process.env.PORT || 5001
+const PORT2 = process.env.PORT || 5002
 
 async function start() {
     try {
@@ -29,13 +32,12 @@ async function start() {
                 cert: fs.readFileSync('./keys/cert.pem'),
             },
             app
-
         )
 
         app.listen(PORT, () => {
             log.info(`app has been started on port ${PORT}...`)
         })
-        httpsServer.listen(PORT2,()=>{
+        httpsServer.listen(PORT2, () => {
             log.info(`https has been started on port ${PORT2}...`)
         })
     } catch (e) {
