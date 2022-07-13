@@ -7,8 +7,8 @@ const url = require('url')
 const cors = require('cors')
 const mainTable = require('./table.js')
 const log = require('./libs/log')(__filename)
-router.options('/', cors())
-router.post('/',cors(),async (req, res) => {
+// router.options('/', cors())
+router.post('/',cors(), (req, res) => {
     try {
         log.info('POST запрос на создание Плана Закупок')
         let {planZakupok,card,table,razdely} = req.body
@@ -17,23 +17,18 @@ router.post('/',cors(),async (req, res) => {
         let ws = wb.addWorksheet('Sheet 1');
         mainTable.createTablePlan(ws,wb,table,card,razdely)
 
-    let promise = new Promise((resolve,reject)=>{
 
-        wb.write(`Заявка ${planZakupok}.xlsx`,(err,stat)=>{
-            if(err) reject(err)
-            else {
-                log.info('Файл создан')
-                    resolve();
-            }
-        })
-    }).then(()=>{
-        return
-        }).catch((err)=>{
-            log.error(err)
-        throw new Error('файл не создан')
-        }
-            )
-        return res.json({asd: 123})
+            let fileStatus = new Promise((resolve,reject)=>{
+                // `Заявка ${planZakupok}.xlsx`
+                wb.write(`file.xlsx`, (err)=>{
+                    err?reject():resolve()
+                })
+            })
+
+            fileStatus.then(()=>log.info('Файл создан')).then(()=>{
+                log.info('Ответ сервера')
+                return res.json({asd: 123})
+            }).catch((err)=>log.error(err,'error'))
     } catch (e) {
         log.error(e, 'error')
         return  res.status(400).json({message: 'bad request'})

@@ -7,7 +7,7 @@ const url = require('url')
 const cors = require('cors')
 const mainTable = require('./table.js')
 const log = require('./libs/log')(__filename)
-router.options('/', cors())
+// router.options('/', cors())
 router.post('/', async (req, res) => {
     try {
         log.info('Post запрос Тендерный акт')

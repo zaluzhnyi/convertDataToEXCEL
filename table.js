@@ -586,4 +586,3 @@ const TableVizant = {
 
 
 module.exports = TableVizant
-// module.exports.createTAble = createTable
